@@ -189,6 +189,8 @@ img{max-width:100%}
 .rad label:has(input:focus-visible){outline:2px solid #2B4237;outline-offset:2px}
 .note{padding:12px 14px;border-radius:12px;background:#FBEFD9;font-size:14px;line-height:23px;color:#3B2A0B;display:none}
 .note.on{display:block}
+.otherw{display:none;flex-direction:column;gap:8px;margin-top:4px}
+.otherw.on{display:flex}
 button.send{width:100%;height:52px;border-radius:12px;border:none;background:#3D5A4C;color:#FFFFFF;font:inherit;font-size:16px;font-weight:600;cursor:pointer}
 button.send[disabled]{background:#D9D6CE;color:#55605A;cursor:default}
 @media (max-width:760px){.formc{padding:18px!important}}
@@ -205,7 +207,7 @@ button.send[disabled]{background:#D9D6CE;color:#55605A;cursor:default}
 <div class="fld"><label class="lbl" for="owner">اسم صاحبة الصالون أو المسؤولة</label><input id="owner" name="owner" class="inp" type="text" autocomplete="name" required><span class="err" id="owner-e" role="alert">اكتبي اسمك</span></div>
 </div>
 <div class="fld"><label class="lbl" for="phone">رقم الجوال</label><div dir="ltr" style="display:flex;gap:8px"><span class="inp" style="width:76px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:#ECE9E2">+966</span><input id="phone" name="phone" class="inp" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="5X XXX XXXX" required></div><span class="mut" style="font-size:13px">نقبل الرقم بصيغة 05 أو 5 أو 9665</span><span class="err" id="phone-e" role="alert">اكتبي رقم جوال سعودي صحيح</span></div>
-<div class="fld"><label class="lbl" for="district">حي الصالون</label><select id="district" name="district" class="inp" required><option value="">اختاري الحي</option><option value="النرجس">النرجس</option><option value="الياسمين">الياسمين</option><option value="الملقا">الملقا</option><option value="حطين">حطين</option><option value="العارض">العارض</option><option value="القيروان">القيروان</option><option value="الصحافة">الصحافة</option><option value="الربيع">الربيع</option><option value="النخيل">النخيل</option><option value="الورود">الورود</option><option value="السليمانية">السليمانية</option><option value="العليا">العليا</option><option value="الروضة">الروضة</option><option value="قرطبة">قرطبة</option><option value="الملز">الملز</option><option value="المروج">المروج</option><option value="الغدير">الغدير</option><option value="النفل">النفل</option><option value="الفلاح">الفلاح</option><option value="الحمراء">الحمراء</option><option value="الريان">الريان</option><option value="الشفا">الشفا</option><option value="العزيزية">العزيزية</option><option value="السويدي">السويدي</option><option value="ظهرة لبن">ظهرة لبن</option><option value="عرقة">عرقة</option><option value="طويق">طويق</option><option value="الرمال">الرمال</option><option value="المونسية">المونسية</option><option value="اليرموك">اليرموك</option><option value="حي آخر في الرياض">حي آخر في الرياض</option><option value="خارج الرياض">صالوني خارج الرياض</option></select><span class="err" id="district-e" role="alert">اختاري حي الصالون</span><div class="note" id="outside" role="alert">البرنامج الحالي داخل الرياض فقط، أرسلي طلبك ونضيفك لقائمة الانتظار ونبلغك أولاً عند وصول صالونا لمدينتك</div></div>
+<div class="fld"><label class="lbl" for="district">حي الصالون</label><select id="district" name="district" class="inp" required><option value="">اختاري الحي</option><option value="النرجس">النرجس</option><option value="الياسمين">الياسمين</option><option value="الملقا">الملقا</option><option value="حطين">حطين</option><option value="العارض">العارض</option><option value="القيروان">القيروان</option><option value="الصحافة">الصحافة</option><option value="الربيع">الربيع</option><option value="النخيل">النخيل</option><option value="الورود">الورود</option><option value="السليمانية">السليمانية</option><option value="العليا">العليا</option><option value="الروضة">الروضة</option><option value="قرطبة">قرطبة</option><option value="الملز">الملز</option><option value="المروج">المروج</option><option value="الغدير">الغدير</option><option value="النفل">النفل</option><option value="الفلاح">الفلاح</option><option value="الحمراء">الحمراء</option><option value="الريان">الريان</option><option value="الشفا">الشفا</option><option value="العزيزية">العزيزية</option><option value="السويدي">السويدي</option><option value="ظهرة لبن">ظهرة لبن</option><option value="عرقة">عرقة</option><option value="طويق">طويق</option><option value="الرمال">الرمال</option><option value="المونسية">المونسية</option><option value="اليرموك">اليرموك</option><option value="حي آخر في الرياض">حي آخر في الرياض</option><option value="خارج الرياض">صالوني خارج الرياض</option></select><span class="err" id="district-e" role="alert">اختاري حي الصالون</span><div class="otherw" id="otherw"><label for="other" class="lbl">اسم الحي</label><input id="other" name="other" class="inp" type="text" autocomplete="address-level3" placeholder="اكتبي اسم حي الصالون"><span class="err" id="other-e" role="alert">اكتبي اسم الحي</span></div><div class="note" id="outside" role="alert">البرنامج الحالي داخل الرياض فقط، أرسلي طلبك ونضيفك لقائمة الانتظار ونبلغك أولاً عند وصول صالونا لمدينتك</div></div>
 <div class="fld"><label class="lbl" for="maps">موقع الصالون على خرائط Google <span class="mut" style="font-weight:400">(اختياري)</span></label><input id="maps" name="maps" class="inp" type="text" dir="auto" placeholder="الصقي رابط الموقع أو اكتبي اسم الصالون كما يظهر في الخرائط"></div>
 <div class="grid2">
 <div class="fld"><label class="lbl" for="insta">حساب إنستغرام <span class="mut" style="font-weight:400">(اختياري)</span></label><input id="insta" name="insta" class="inp" type="text" dir="auto" placeholder="@اسم_الحساب أو الرابط"></div>
@@ -233,16 +235,20 @@ var f=document.getElementById('f'),out=document.getElementById('outside'),nolic=
 function val(id){return (document.getElementById(id).value||'').trim();}
 function phoneOk(p){p=p.replace(/[\s\-]/g,'').replace(/^\+/,'');p=p.replace(/^00966|^966/,'').replace(/^0/,'');return /^5\d{8}$/.test(p)?p:null;}
 function mark(id,bad){document.getElementById(id).classList.toggle('bad',bad);document.getElementById(id+'-e').classList.toggle('on',bad);}
-document.getElementById('district').addEventListener('change',function(){out.classList.toggle('on',this.value==='خارج الرياض');});
+var ow=document.getElementById('otherw');
+document.getElementById('other').addEventListener('input',function(){if(this.value.trim())mark('other',false);});
+function isOther(){return val('district')==='حي آخر في الرياض';}
+document.getElementById('district').addEventListener('change',function(){out.classList.toggle('on',this.value==='خارج الرياض');ow.classList.toggle('on',isOther());if(isOther())document.getElementById('other').focus();else mark('other',false);});
 f.addEventListener('change',function(e){if(e.target.name==='licensed'){var no=e.target.value==='لا';nolic.classList.toggle('on',no);send.disabled=no;}});
 f.addEventListener('submit',function(e){
   e.preventDefault();
   var ph=phoneOk(val('phone'));
   mark('salon',!val('salon'));mark('owner',!val('owner'));mark('phone',!ph);mark('district',!val('district'));
-  if(!val('salon')||!val('owner')||!ph||!val('district'))return;
+  var oBad=isOther()&&!val('other');mark('other',oBad);
+  if(!val('salon')||!val('owner')||!ph||!val('district')||oBad)return;
   var lic=(f.querySelector('input[name=licensed]:checked')||{}).value;
   if(lic!=='نعم')return;
-  var d={time:new Date().toISOString(),salon:val('salon'),owner:val('owner'),phone:'+966'+ph,district:val('district'),maps:val('maps'),instagram:val('insta'),tiktok:val('tiktok'),licensed:lic,page:location.href};
+  var d={time:new Date().toISOString(),salon:val('salon'),owner:val('owner'),phone:'+966'+ph,district:(isOther()?val('other'):val('district')),maps:val('maps'),instagram:val('insta'),tiktok:val('tiktok'),licensed:lic,page:location.href};
   send.disabled=true;send.textContent='جاري الإرسال';
   var fin=function(){
     var msg='طلب انضمام لبرنامج أول 10 صالونات%0Aالصالون: '+encodeURIComponent(d.salon)+'%0Aالاسم: '+encodeURIComponent(d.owner)+'%0Aالجوال: '+encodeURIComponent(d.phone)+'%0Aالحي: '+encodeURIComponent(d.district);
