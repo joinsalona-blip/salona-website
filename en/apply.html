@@ -265,7 +265,7 @@ f.addEventListener('submit',function(e){
     if(d.district==='خارج الرياض')document.getElementById('donemsg').textContent='The programme is in Riyadh for now, so we\'ve added your salon to the waitlist and will tell you first when Salona reaches your city';
     f.hidden=true;var dn=document.getElementById('done');dn.hidden=false;dn.style.display='flex';dn.focus&&dn.focus();window.scrollTo({top:0,behavior:'smooth'});
   };
-  if(SHEET_URL){var body=new URLSearchParams(d);fetch(SHEET_URL,{method:'POST',mode:'no-cors',body:body}).then(fin,fin);}else{fin();}
+  var API_URL='https://app.joinsalona.com/api/applications',ok=function(){};var p1=SHEET_URL?fetch(SHEET_URL,{method:'POST',mode:'no-cors',body:new URLSearchParams(d)}).catch(ok):Promise.resolve();var p2=fetch(API_URL,{method:'POST',mode:'no-cors',body:new URLSearchParams(d)}).catch(ok);Promise.all([p1,p2]).then(fin,fin);
 });
 })();
 </script>
